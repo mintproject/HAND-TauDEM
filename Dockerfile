@@ -10,7 +10,17 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         build-essential \
         cmake \
         curl \
-        git
+        git \
+        libfreetype6-dev \
+        libgdal-dev \
+        libgdal-dev \
+        libpng-dev \
+        libssl-dev \
+        libsundials-dev \
+        libomp-dev \
+        libopenmpi-dev \
+        libxpm-dev \
+        libzmq3-dev \
 
 RUN git clone --branch Develop https://github.com/dtarb/TauDEM && \
     cd TauDEM/src && \
