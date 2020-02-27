@@ -1,4 +1,4 @@
-name: hand-taudem
+name: base
 channels:
   - conda-forge
   - defaults
@@ -10,5 +10,4 @@ dependencies:
   - numpy
   - matplotlib
   - shapely
-prefix: /home/dhl/anaconda3/envs/hand-taudem
-
+prefix: /opt/conda
