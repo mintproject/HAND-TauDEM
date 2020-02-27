@@ -20,7 +20,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         libomp-dev \
         libopenmpi-dev \
         libxpm-dev \
-        libzmq3-dev \
+        libzmq3-dev
 
 RUN git clone --branch Develop https://github.com/dtarb/TauDEM && \
     cd TauDEM/src && \
