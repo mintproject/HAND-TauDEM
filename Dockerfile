@@ -3,6 +3,15 @@ FROM continuumio/miniconda3
 # TauDEM
 # ------
 
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get upgrade -y --allow-unauthenticated && \
+    apt-get install -y --allow-unauthenticated \
+        build-essential \
+        cmake \
+        curl \
+        git
+
 RUN git clone --branch Develop https://github.com/dtarb/TauDEM && \
     cd TauDEM/src && \
     mkdir build && \
