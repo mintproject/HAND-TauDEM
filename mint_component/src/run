@@ -10,7 +10,7 @@ fi
 
 BASEDIR=`dirname $0`
 
-. $BASEDIR/io.sh 1 1 2 "$@"
+. $BASEDIR/io.sh 1 1 3 "$@"
 
 set -x
 
@@ -51,7 +51,10 @@ python3 hand-threshmax.py --accumulation demssa.tif --output demthreshmax.txt
 dropanalysis -ad8 demad8.tif -p demp.tif -fel demfel.tif -ssa demssa.tif -o outlets.shp -drp demdrp.txt -par $(cat demthreshmin.txt) $(cat demthreshmax.txt) 10 0
 threshold -ssa demssa.tif -src demsrc.tif -thresh $(tail -n 1 demdrp.txt | awk '{print $NF}')
 
-dinfdistdown -ang demang.tif -fel demfel.tif -src demsrc.tif -wg demwg.tif -dd $2 -m ave v -nc
+dinfdistdown -ang demang.tif -fel demfel.tif -src demsrc.tif -wg demwg.tif -dd output.tif -m ave v -nc
+
+python3 hand-vis.py --dd output.tif --binmethod "lin" --shapefile output.shp --geojson output.json
 
 mv output.tif $OUTPUTS1
-mv output.png $OUTPUTS2
+mv output.shp $OUTPUTS2
+mv output.json $OUTPUTS3
