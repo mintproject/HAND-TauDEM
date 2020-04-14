@@ -53,8 +53,9 @@ threshold -ssa demssa.tif -src demsrc.tif -thresh $(tail -n 1 demdrp.txt | awk '
 
 dinfdistdown -ang demang.tif -fel demfel.tif -src demsrc.tif -wg demwg.tif -dd output.tif -m ave v -nc
 
-/opt/conda/bin/python3 hand-vis.py --dd output.tif --binmethod "lin" --shapefile output.shp --geojson output.json
-
+#/opt/conda/bin/python3 hand-vis.py --dd output.tif --binmethod "lin" --shapefile output.shp --geojson output.json
+/opt/conda/bin/python3 hand-vis.py --input output.tif --binmethod "lin" --raster output-raster.tif --shapefile outputs.shp --geojson output.json
 mv output.tif $OUTPUTS1
-mv output.shp $OUTPUTS2
-mv output.json $OUTPUTS3
+mv output-raster.tif $OUTPUTS2
+mv output.shp $OUTPUTS3
+mv output.json $OUTPUTS4
