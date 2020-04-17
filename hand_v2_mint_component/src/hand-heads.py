@@ -5,6 +5,9 @@ import geopandas as gpd
 from shapely.geometry import Point
 import argparse
 
+import pandas as pd
+pd.options.mode.chained_assignment = None
+
 def argparser():
 
     parser = argparse.ArgumentParser()
